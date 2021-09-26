@@ -82,7 +82,7 @@ void expandArray(int start)
     return;
 }
 
-int printLine()
+void printLine()
 {
     char list[size];
     for (int i = 0; i < size; i++)
@@ -90,10 +90,10 @@ int printLine()
         list[i] = '=';
     }
     printf("%s\n", list);
-    return 0;
+    return;
 }
 
-int getYear()
+void getYear()
 {
     int temp;
     do
@@ -103,9 +103,10 @@ int getYear()
         temp < 1886 ? printf("%ls\n", L" Não existiam carros nesta época!") : 0;
     } while (temp < 1886);
     car[count].year = temp;
+    return;
 }
 
-int getBoard()
+void getBoard()
 {
     char temp;
     for (int i = 0; i < 8; i++)
@@ -129,10 +130,10 @@ int getBoard()
         }
     }
     car[count].board[8] ='\0';
-    return 0;
+    return;
 }
 
-int create()
+void create()
 {
     if (count < numberOfCars)
     {
@@ -162,19 +163,20 @@ int create()
         expandArray(false);
         create();
     }
-    return 0;
+    return;
 }
 
-int printCar(i)
+void printCar(i)
 {
     printLine();
     printf("%ls %s\n", L" Marca do veículo:", car[i].brand);
     printf("%ls %s\n", L" Modelo do veículo:", car[i].model);
     printf("%ls %i\n", L" Ano do veículo:", car[i].year);
     printf("%ls %s\n\n", L" Placa do veículo:", car[i].board);
+    return;
 }
 
-int list()
+void list()
 {
     for (int i = 0; i < count; i++)
     {
@@ -185,10 +187,10 @@ int list()
         printf("%ls\n\n", L" Não há veículos cadastrados!");
     }
     system("pause");
-    return 0;
+    return;
 }
 
-int listByYear()
+void listByYear()
 {
     int get = 0;
     int year;
@@ -210,10 +212,10 @@ int listByYear()
     }
 
     system("pause");
-    return 0;
+    return;
 }
 
-int listAboveYear()
+void listAboveYear()
 {
     int get = 0;
     int year;
@@ -234,10 +236,10 @@ int listAboveYear()
         printf("%ls %i!\n\n", L" Não foram encontrados veículos com ano maior ou igual que", year);
     }
     system("pause");
-    return 0;
+    return;
 }
 
-int listByModel()
+void listByModel()
 {
     int get = 0;
     char model[size];
@@ -258,5 +260,5 @@ int listByModel()
         printf("%ls %s!\n\n", L" Não foram encontrados veículos do modelo", model);
     }
     system("pause");
-    return 0;
+    return;
 }
