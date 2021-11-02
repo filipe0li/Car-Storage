@@ -17,6 +17,16 @@ typedef struct Car
 int count = 0;
 int numberOfCars = 0;
 Car *car = NULL;
+int expandArray(int start);
+int printLine();
+int getYear();
+int getBoard();
+int create();
+int printCar(int i);
+int list();
+int listByYear();
+int listAboveYear();
+int listByModel();
 
 int main()
 {
@@ -63,9 +73,9 @@ int main()
     return 0;
 }
 
-void expandArray(int start)
+int expandArray(int start)
 {
-    numberOfCars += 10;
+    numberOfCars += 2;
     if (start == true)
     {
         car = malloc(numberOfCars * sizeof(Car));
@@ -79,10 +89,10 @@ void expandArray(int start)
         printf(" Memory allocation error!!!\n");
         exit(1);
     }
-    return;
+    return 0;
 }
 
-void printLine()
+int printLine()
 {
     char list[size];
     for (int i = 0; i < size; i++)
@@ -90,10 +100,10 @@ void printLine()
         list[i] = '=';
     }
     printf("%s\n", list);
-    return;
+    return 0;
 }
 
-void getYear()
+int getYear()
 {
     int temp;
     do
@@ -103,10 +113,10 @@ void getYear()
         temp < 1886 ? printf("%ls\n", L" Não existiam carros nesta época!") : 0;
     } while (temp < 1886);
     car[count].year = temp;
-    return;
+    return 0;
 }
 
-void getBoard()
+int getBoard()
 {
     char temp;
     for (int i = 0; i < 8; i++)
@@ -130,10 +140,10 @@ void getBoard()
         }
     }
     car[count].board[8] ='\0';
-    return;
+    return 0;
 }
 
-void create()
+int create()
 {
     if (count < numberOfCars)
     {
@@ -163,20 +173,20 @@ void create()
         expandArray(false);
         create();
     }
-    return;
+    return 0;
 }
 
-void printCar(i)
+int printCar(int i)
 {
     printLine();
     printf("%ls %s\n", L" Marca do veículo:", car[i].brand);
     printf("%ls %s\n", L" Modelo do veículo:", car[i].model);
     printf("%ls %i\n", L" Ano do veículo:", car[i].year);
     printf("%ls %s\n\n", L" Placa do veículo:", car[i].board);
-    return;
+    return 0;
 }
 
-void list()
+int list()
 {
     for (int i = 0; i < count; i++)
     {
@@ -187,10 +197,10 @@ void list()
         printf("%ls\n\n", L" Não há veículos cadastrados!");
     }
     system("pause");
-    return;
+    return 0;
 }
 
-void listByYear()
+int listByYear()
 {
     int get = 0;
     int year;
@@ -212,10 +222,10 @@ void listByYear()
     }
 
     system("pause");
-    return;
+    return 0;
 }
 
-void listAboveYear()
+int listAboveYear()
 {
     int get = 0;
     int year;
@@ -236,10 +246,10 @@ void listAboveYear()
         printf("%ls %i!\n\n", L" Não foram encontrados veículos com ano maior ou igual que", year);
     }
     system("pause");
-    return;
+    return 0;
 }
 
-void listByModel()
+int listByModel()
 {
     int get = 0;
     char model[size];
@@ -260,5 +270,5 @@ void listByModel()
         printf("%ls %s!\n\n", L" Não foram encontrados veículos do modelo", model);
     }
     system("pause");
-    return;
+    return 0;
 }
